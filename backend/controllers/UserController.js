@@ -16,7 +16,7 @@ const generateToken = (id) => {
 const register = async (req, res) => {
     const { name, email, password } = req.body;
 
-    // check if user exists (correção: verificar corretamente)
+    // check if user exists 
     const user = await User.findOne({ email });
     if (user) {
         res.status(422).json({ errors: ["Por favor, utilize um e-mail válido."] });
@@ -27,7 +27,7 @@ const register = async (req, res) => {
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
 
-    // create user (correção: User.create)
+    // create user
     const newUser = await User.create({
         name,
         email,
@@ -46,6 +46,12 @@ const register = async (req, res) => {
     });
 };
 
+// Sing in 
+const login = (req, res) =>{
+    res.send("Login")
+}
+
 module.exports = {
     register,
+    login,
 };
