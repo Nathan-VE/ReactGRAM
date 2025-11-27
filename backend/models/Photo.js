@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const {Schema} = mongoose;
+const mongoose = require("mongoose")
+const {Schema} = mongoose
 
 const photoSchema = new Schema({
         image: String,
@@ -12,4 +12,4 @@ const photoSchema = new Schema({
     {
         time: true,
     }
-);
+)

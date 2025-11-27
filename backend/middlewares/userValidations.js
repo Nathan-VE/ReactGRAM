@@ -1,4 +1,4 @@
-const { body } = require("express-validator");
+const { body } = require("express-validator")
 
 const userCreateValidation = () => {
     return [
@@ -25,12 +25,12 @@ const userCreateValidation = () => {
             .withMessage("A confirmação de senha é necessária.")
             .custom((value, { req }) => {
                 if (value !== req.body.password) {
-                    throw new Error("As senhas não são iguais.");
+                    throw new Error("As senhas não são iguais.")
                 }
-                return true;
+                return true
             }),
-    ];
-};
+    ]
+}
 
 const loginValidation = () => {
     return [
@@ -42,10 +42,10 @@ const loginValidation = () => {
         body("password")
             .isString()
             .withMessage("A senha é obrigatória."),
-    ];
-};
+    ]
+}
 
 module.exports = {
     userCreateValidation,
     loginValidation,
-};
+}
